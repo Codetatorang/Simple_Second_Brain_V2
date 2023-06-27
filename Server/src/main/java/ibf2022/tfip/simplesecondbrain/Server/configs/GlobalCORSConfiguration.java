@@ -11,7 +11,7 @@ public class GlobalCORSConfiguration implements WebMvcConfigurer{
     public void addCorsMappings(CorsRegistry registry){
         registry.addMapping("/**")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedOrigins("http://localhost:4200") //needs to change after serve to railway
+                .allowedOrigins("simplesecondbrain.up.railway.app") //needs to change after serve to railway
                 .allowedHeaders("*")
                 .allowCredentials(true)
                 .maxAge(3600);
