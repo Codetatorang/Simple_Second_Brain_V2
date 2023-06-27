@@ -4,10 +4,11 @@ import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { NoteboardComponent } from './components/noteboard/noteboard.component';
 import { NotesComponent } from './components/notes/notes.component';
+import { loginredirectGuard } from './guards/loginredirect.guard';
 
 const routes: Routes = [
   {path:"signup", component: SignupComponent},
-  {path:"login", component: LoginComponent},
+  {path:"login", canActivate:[loginredirectGuard], component: LoginComponent},
   {path:"board", component: NoteboardComponent},
   {path:"notes", component: NotesComponent, outlet:"noteOutlet"},
   {path:"**", redirectTo:"/", pathMatch:"full"}, //unmatch default redirect to home

@@ -15,6 +15,8 @@ export class UserAuthService {
   loginStatusChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
   private isLoggedin: boolean = false;
   private storageKey = 'loginStatus';
+  statusInStorage!: string;
+
   // private readonly jwtHelper!: JwtHelperService;
 
   constructor(private http: HttpClient) {
@@ -23,7 +25,7 @@ export class UserAuthService {
   }
 
   getLoginStatus(): boolean {
-    return this.isLoggedin;
+    return this.getLoginStatusFromStorage();
   }
 
   setLoginStatus(status: boolean) {
@@ -37,8 +39,11 @@ export class UserAuthService {
   }
 
   private getLoginStatusFromStorage(): boolean {
-    const status = localStorage.getItem(this.storageKey);
-    return status ? status === 'true' : false;
+    if(null !== localStorage.getItem(this.storageKey)){
+      const status = localStorage.getItem(this.storageKey);
+      return status ? status === 'true' : false;
+    }
+    return false;
   }
 
   login(user: UserLogin): Observable<User> {
