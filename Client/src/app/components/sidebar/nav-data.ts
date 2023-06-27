@@ -8,6 +8,6 @@ export const navbarData = [
         // routeLink: "/notes",
         routeLink: "notes",
         icon: faNote,
-        label: 'Notes'
+        label: 'Get Started'
     }
 ];

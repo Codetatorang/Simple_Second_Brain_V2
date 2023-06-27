@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { UserAuthService } from 'src/app/services/user-auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,15 +14,14 @@ export class NavbarComponent implements OnInit, OnDestroy{
   isLoggedIn: boolean = false;
   private loginStatusSubscription!: Subscription;
   
-  //!todo uncomment loginservice codes after service class implementation
-  constructor(private router: Router, private location: Location, ) { } //private loginSvc: LoginService
+  constructor(private router: Router, private location: Location, private userSvc: UserAuthService) { }
 
   loginPage() {
-    this.router.navigate(["/login"]);
+    this.router.navigateByUrl('/login');
   }
 
   logout() {
-    //this.loginSvc.setLoginStatus(false);
+    this.userSvc.setLoginStatus(false);
   }
 
 
@@ -33,11 +33,11 @@ export class NavbarComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     //suscribe to login status
-    // this.isLoggedIn = this.loginSvc.getLoginStatus();
+    this.isLoggedIn = this.userSvc.getLoginStatus();
 
-    // this.loginStatusSubscription = this.loginSvc.loginStatusChanged.subscribe((status: boolean) => {
-    //   this.isLoggedIn = status;
-    // });
+    this.loginStatusSubscription = this.userSvc.loginStatusChanged.subscribe((status: boolean) => {
+      this.isLoggedIn = status;
+    });
   }
 
   ngOnDestroy(): void {
