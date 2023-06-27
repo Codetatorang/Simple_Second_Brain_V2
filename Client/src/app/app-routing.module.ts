@@ -12,7 +12,6 @@ const routes: Routes = [
   {path:"board", component: NoteboardComponent},
   {path:"notes", component: NotesComponent, outlet:"noteOutlet"},
   {path:"**", redirectTo:"/", pathMatch:"full"}, //unmatch default redirect to home
-  //!todo: disallow nagivation to login or sign up when logged in
 ];
 
 @NgModule({
