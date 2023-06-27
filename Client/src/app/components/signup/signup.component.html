@@ -1,0 +1,68 @@
+<button mat-button>
+    <img src="assets\icons\icon-192x192.png" alt="SSB logo" class="img-css" (click)="homePage()">
+</button>
+
+<div class="container" fxLayoutAlign="center">
+    <mat-card fxLayout="column" fxLayoutGap="10px">
+        <mat-card-header>
+            <h1>Sign up</h1>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="line"></div>
+            <br>
+            <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()">
+                <mat-form-field hintLabel="Min 3, Max 30 characters"
+                    [ngClass]="createUserForm.controls['userName'].valid?'validation-pass':'validation-fail'">
+                    <mat-label>Enter your Username</mat-label>
+                    <input matInput #username minlength="3" maxlength="30" type="text" formControlName="userName">
+                    <mat-icon matSuffix><fa-icon matSuffix [icon]="username_icon"></fa-icon></mat-icon>
+                    <mat-hint align="end">{{ username.value.length || 0 }}/30</mat-hint>
+                    <mat-error *ngIf="createUserForm.get('userName')?.hasError('required')" class="error-message">
+                            Please enter your <strong>Username</strong>.
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field hintLabel="Min 1, Max 30 characters"
+                    [ngClass]="createUserForm.controls['userPassword'].valid? 'validation-pass':'validation-fail'">
+                    <mat-label for="password">Enter your Password</mat-label>
+                    <input matInput #password type="password" maxlength="30" formControlName="userPassword">
+                    <mat-icon matSuffix><fa-icon matSuffix [icon]="password_icon"></fa-icon></mat-icon>
+                    <mat-hint align="end">{{ password.value.length || 0 }}/30</mat-hint>
+                    <mat-error *ngIf="createUserForm.controls['userPassword'].hasError('required')"
+                        class="error-message">
+                        Please enter your <strong>Password</strong>.
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field hintLabel="Min 3, Max 30 characters"
+                    [ngClass]="createUserForm.controls['accName'].valid? 'validation-pass':'validation-fail'">
+                    <mat-label for="accName">Enter your Account Name</mat-label>
+                    <input matInput #accname type="text" maxlength="30" formControlName="accName">
+                    <mat-icon matSuffix><fa-icon matSuffix [icon]="accname_icon"></fa-icon></mat-icon>
+                    <mat-hint align="end">{{ accname.value.length || 0 }}/30</mat-hint>
+                    <mat-error *ngIf="createUserForm.controls['accName'].hasError('required')" class="error-message">
+                        Please enter your <strong>Account Name</strong>.
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <mat-form-field hintLabel="Enter a valid email address"
+                    [ngClass]="createUserForm.controls['email'].valid? 'validation-pass':'validation-fail'">
+                    <mat-label for="email">Enter your Email Address</mat-label>
+                    <input matInput #email type="email" maxlength="50" formControlName="email">
+                    <mat-icon matSuffix><fa-icon matSuffix [icon]="email_icon"></fa-icon></mat-icon>
+                    <mat-hint align="end">{{ email.value.length || 0 }}/50</mat-hint>
+                    <mat-error *ngIf="createUserForm.controls['email'].hasError('required')" class="error-message">
+                        Please enter your <strong>Email</strong>.
+                    </mat-error>
+                </mat-form-field>
+                <br>
+                <button mat-raised-button type="submit" style="width: 100%; background-color: #e57878;">Sign up for an
+                    Account
+                </button>
+            </form>
+            <br>
+            <div *ngIf="onSubmitError" [innerHTML]="errorResp" class="error-message"></div>
+
+        </mat-card-content>
+    </mat-card>
+</div>

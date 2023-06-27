@@ -1,0 +1,25 @@
+// @use 'node_modules/@angular/material' as mat;
+@use '@angular/material' as mat;
+@import './custom-palette.scss';
+
+@include mat.core();
+
+$custom-theme: mat.define-light-theme(
+    (
+        //! only primary, accent, warn are supported, to use more colors, more themes are needed
+        color: (
+            primary: $custom-palette-primary,
+            // secondary: $custom-palette-secondary, //not working, themes are limited to 3 colors only 
+            // caution: $custom-palette-caution, //not working, themes are limited to 3 colors only 
+            accent: $custom-palette-accent,
+            warn: $custom-palette-warn,
+        ),
+    )
+);
+          
+
+@include mat.core-theme($custom-theme);
+
+@include mat.button-theme($custom-theme);
+
+@include angular-material-theme($custom-theme);

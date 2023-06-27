@@ -1,0 +1,123 @@
+/* adjust logo */
+.img-css {
+    padding-top: 55%;
+    padding-left: 8.5%;
+}
+
+/* card alignment to middle portrait*/
+.mat-mdc-card {
+    display: flex;
+    width: 50%;
+    height: 50%;
+    align-content: center;
+    align-items: center;
+    box-shadow: none;
+    /* background-color: aquamarine; */
+    /* to remove*/
+}
+
+/* container containing the mat-card */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    margin-top: 10vh;
+}
+
+/* align text inside mat-card */
+h1 {
+    text-align: center;
+    font-size: 2.5em;
+}
+
+/* mat-divider adjustment */
+/* .mat-divider.mat-divider-inset {
+    margin-left: 10%;
+    margin-right: 10%;
+    border-top-width: 2px;
+
+} */
+
+/* form field error-message colour */
+.mat-mdc-form-field-error {
+    color: red;
+}
+
+/* mat-form-field-background */
+.mat-mdc-form-field {
+    background-color: rgba(240, 240, 240, 0.904);
+}
+
+/* mat-label colour */
+::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: rgb(0, 0, 0);
+}
+
+
+/* form field elements */
+::ng-deep .mat-form-field {
+    display: flex;
+
+    .mat-input-element {
+        color: black;
+    }
+
+    .mat-form-field-label {
+        color: rgb(196, 207, 218);
+    }
+
+    .mat-form-field-underline {
+        background-color: slategray;
+    }
+
+    .mat-form-field-ripple {
+        background-color: slategray;
+    }
+
+    .mat-form-field-outline {
+        background-color: slategray;
+    }
+}
+
+.mat-mdc-raised-button.mat-unthemed {
+    --mdc-protected-button-container-color: #e57878;
+    --mdc-protected-button-label-text-color: #000;
+    outline-width: 0.1px;
+    outline-style: solid;
+    outline-color: rgb(255, 87, 87);
+}
+
+/* align button */
+#button-align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* set button to same size as mat-inputs */
+button {
+    flex: 1;
+    box-sizing: border-box;
+    box-shadow: none;
+
+}
+
+/* margin bottom */
+.margin-bottom {
+    margin-bottom: 10px;
+}
+
+/* align a tags */
+a {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+/* adjust error message inside mat-form-fields */
+.error-message {
+    color: red;
+    text-align: center;
+}

@@ -1,0 +1,178 @@
+@import '@angular/material/theming';
+
+$md-custom01: (
+    50 : #fdfefb,
+    100 : #f9fcf5,
+    200 : #f5faef,
+    300 : #f1f8e9,
+    400 : #eef7e4,
+    500 : #ebf5df,
+    600 : #e9f4db,
+    700 : #e5f2d7,
+    800 : #e2f0d2,
+    900 : #ddeeca,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+$md-custom02: (
+    50 : #f7faf5,
+    100 : #eaf2e6,
+    200 : #ddead5,
+    300 : #cfe1c4,
+    400 : #c4dab7,
+    500 : #bad4aa,
+    600 : #b3cfa3,
+    700 : #abc999,
+    800 : #a3c390,
+    900 : #94b97f,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #e8ffdc,
+    A700 : #d8ffc3,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-custom03: (
+    50 : #fafaf5,
+    100 : #f2f2e6,
+    200 : #eaead5,
+    300 : #e1e1c4,
+    400 : #dadab7,
+    500 : #d4d4aa,
+    600 : #cfcfa3,
+    700 : #c9c999,
+    800 : #c3c390,
+    900 : #b9b97f,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffdc,
+    A700 : #ffffc3,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-custom04: (
+    50 : #fdf6eb,
+    100 : #fae9cd,
+    200 : #f6daac,
+    300 : #f2cb8a,
+    400 : #f0bf71,
+    500 : #edb458,
+    600 : #ebad50,
+    700 : #e8a447,
+    800 : #e59c3d,
+    900 : #e08c2d,
+    A100 : #ffffff,
+    A200 : #fff7ee,
+    A400 : #ffdebb,
+    A700 : #ffd1a1,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-custom05: (
+    50 : #fcf1e4,
+    100 : #f8dbbc,
+    200 : #f4c38f,
+    300 : #efab62,
+    400 : #eb9940,
+    500 : #e8871e,
+    600 : #e57f1a,
+    700 : #e27416,
+    800 : #de6a12,
+    900 : #d8570a,
+    A100 : #ffffff,
+    A200 : #ffdfcf,
+    A400 : #ffbd9c,
+    A700 : #ffab83,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+//use color map in palette
+//! themeing only supports 3 colors: primary, accent, warn. to use more colors, more themes are needed
+$custom-palette-primary: mat-palette($md-custom01);
+// $custom-palette-secondary:mat-palette($md-custom02, 500); //not working, themes are limited to 3 colors only
+$custom-palette-accent: mat-palette($md-custom02);
+// $custom-palette-caution: mat-palette($md-custom04); //not working, themes are limited to 3 colors only
+$custom-palette-warn: mat-palette($md-custom04);
+
+
+

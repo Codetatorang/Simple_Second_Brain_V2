@@ -1,0 +1,17 @@
+<mat-toolbar color="accent">
+    <button mat-button disableRipple class="test-button">
+      <img src="assets\icons\icon-192x192.png" alt="SSB logo" class="img-css" (click)="homePage()">
+    </button>
+  <span class="title-css">{{ title }}</span>
+  <span class="example-spacer"></span>
+  <ng-container *ngIf="!isLoggedIn">
+    <button aria-label="login-button" mat-flat-button color="warn" (click)="loginPage()">
+      Login
+    </button>
+  </ng-container>
+  <ng-container *ngIf="isLoggedIn">
+    <button aria-label="logout-button" mat-flat-button color="warn" (click)="logout()">
+      Logout
+    </button>
+  </ng-container>
+</mat-toolbar>

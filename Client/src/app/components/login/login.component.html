@@ -1,0 +1,51 @@
+<button mat-button>
+    <img src="assets\icons\icon-192x192.png" alt="SSB logo" class="img-css" (click)="homePage()">
+</button>
+
+<div class="container" fxLayoutAlign="center">
+    <mat-card fxLayout="column" fxLayoutGap="18px">
+        <h1>{{ title }}</h1>
+        <mat-card-content>
+            <p>replace with google oauth2</p>
+            <mat-divider></mat-divider>
+        </mat-card-content>
+        <mat-card-content>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div>
+                    <mat-form-field class="mat-field-login margin-bottom">
+                        <mat-label> Enter your Username...</mat-label>
+                        <input matInput placeholder="Username" maxlength="30" formControlName="userName"
+                            class="mat-input-background-col">
+                        <mat-icon matSuffix><fa-icon matSuffix [icon]="username_icon"></fa-icon></mat-icon>
+                        <mat-error *ngIf="loginForm.controls['userName'].hasError('required')">
+                            Please enter your <strong>Username</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field class="margin-bottom">
+                        <mat-label> Enter your Password...</mat-label>
+                        <input matInput [type]="hide ? 'password':'text'" placeholder="userPassword"
+                            formControlName="userPassword">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide"><mat-icon>{{hide ? 'visibility_off' :
+                                'visibility'}}</mat-icon></button>
+                        <mat-error *ngIf="loginForm.controls['userPassword'].hasError('required')">
+                            Please enter your <strong>Password</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div id="button-align">
+                    <button mat-raised-button type="submit">Continue with Username</button>
+                </div>
+            </form>
+        </mat-card-content>
+        <mat-card-content>
+            <a href="">forgot password?</a>
+            <br>
+            <a routerLink="/signup" style="justify-content: center;">No account? Sign up here</a>
+            <br>
+            <div *ngIf="onSubmitError" [innerHTML]="errorResp" class="error-message"></div>
+        </mat-card-content>
+    </mat-card>
+</div>

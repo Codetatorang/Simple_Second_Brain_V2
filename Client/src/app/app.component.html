@@ -1,0 +1,12 @@
+<!-- NavBar -->
+<div *ngIf="!isLoginOrSignup()">
+    <app-navbar></app-navbar>
+</div>
+
+<!-- SPA router-outlet -->
+<router-outlet></router-outlet> <!-- login, signup, main-->
+
+
+<!-- do not display the navbar if page is currently signup or login -->
+<ng-template #displayNavbar>
+</ng-template>
