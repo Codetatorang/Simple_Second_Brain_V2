@@ -9,7 +9,7 @@ import { UserLogin, User } from '../models/user.model';
   providedIn: 'root'
 })
 export class UserAuthService {
-  private apiUrl = 'http://localhost:8080/user'
+  private apiUrl = 'simplesecondbrain.up.railway.app/user'
 
 
   loginStatusChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
