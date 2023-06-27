@@ -1,5 +1,12 @@
-<h1>NOTES!</h1>
+<h1 contenteditable="true">Title</h1>
 
-<ng-container >
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique quam sint accusantium sit adipisci exercitationem accusamus? Necessitatibus debitis, impedit fuga quibusdam dolorum possimus quod veniam veritatis alias, modi ipsa ullam.
-</ng-container>
+
+<div id= "container" #container contenteditable="true" (input)="onContentChanged($event.target)" (keypress)="handleKeyPress($event)" class="block"></div>
+
+<!-- <input type="text" [(ngModel)]="newDivText" (keydown.enter)="createDiv()" placeholder="Enter text and press Enter">
+<div *ngFor="let divText of divTexts; let i = index" class="div-item">
+  {{ divText }}
+</div> -->
+<!-- <div class="divContainer" #container>
+    <div *ngFor="let div of divs" class="block" [innerHTML]="div"></div>
+</div> -->
