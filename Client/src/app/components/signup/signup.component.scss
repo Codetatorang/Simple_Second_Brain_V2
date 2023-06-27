@@ -1,7 +1,9 @@
 /* adjust logo */
 .img-css {
+    position: relative;
     padding-top: 55%;
     padding-left: 8.5%;
+    left: -25px;
 }
 
 /* adjust error message inside mat-form-fields */

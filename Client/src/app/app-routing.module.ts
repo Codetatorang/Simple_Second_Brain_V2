@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { NoteboardComponent } from './components/noteboard/noteboard.component';
+import { NotesComponent } from './components/notes/notes.component';
 
 const routes: Routes = [
   {path:"signup", component: SignupComponent},
   {path:"login", component: LoginComponent},
   {path:"board", component: NoteboardComponent},
+  {path:"notes", component: NotesComponent, outlet:"noteOutlet"},
   {path:"**", redirectTo:"/", pathMatch:"full"}, //unmatch default redirect to home
   //!todo: disallow nagivation to login or sign up when logged in
 ];

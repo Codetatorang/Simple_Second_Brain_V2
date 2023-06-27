@@ -8,6 +8,11 @@ const myMatFormFieldDefaultOptions: MatFormFieldDefaultOptions = {
   hideRequiredMarker: true
 };
 
+interface SideNavToggle {
+  screenWidth: number;
+  collapsed: boolean;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,6 +21,10 @@ const myMatFormFieldDefaultOptions: MatFormFieldDefaultOptions = {
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'Client';
+
+  //for sidebar
+  isSideNavCollapsed = false;
+  screenWidth = 0;
 
   //stores current router url
   routerUrl!: String;
@@ -44,5 +53,8 @@ export class AppComponent implements OnInit, OnDestroy {
     return false;
   }
 
-
+  onToggleSideNav(data: SideNavToggle): void {
+    this.screenWidth = data.screenWidth;
+    this.isSideNavCollapsed = data.collapsed;
+  }
 }

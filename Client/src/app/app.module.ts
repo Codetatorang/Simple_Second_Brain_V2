@@ -13,6 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { NoteboardComponent } from './components/noteboard/noteboard.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NotesComponent } from './components/notes/notes.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     SidebarComponent,
     LoginComponent,
     SignupComponent,
-    NoteboardComponent
+    NoteboardComponent,
+    NotesComponent
   ],
   imports: [
     BrowserModule,

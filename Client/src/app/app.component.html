@@ -3,10 +3,14 @@
     <app-navbar></app-navbar>
 </div>
 
+
+<!-- sidebar -->
+<div *ngIf="!isLoginOrSignup()">
+<!-- <div> -->
+    <app-sidebar (onToggleSideNav)="onToggleSideNav($event)"></app-sidebar>
+    <app-noteboard [collapsed]="isSideNavCollapsed" [screenWidth]="screenWidth"></app-noteboard>
+</div>
+
+
 <!-- SPA router-outlet -->
 <router-outlet></router-outlet> <!-- login, signup, main-->
-
-
-<!-- do not display the navbar if page is currently signup or login -->
-<ng-template #displayNavbar>
-</ng-template>
