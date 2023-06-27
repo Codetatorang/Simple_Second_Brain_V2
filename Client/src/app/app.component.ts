@@ -1,10 +1,17 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldDefaultOptions } from '@angular/material/form-field';
+
+//disable asterisk from form fields globally
+const myMatFormFieldDefaultOptions: MatFormFieldDefaultOptions = {
+  hideRequiredMarker: true
+};
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
+  providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: myMatFormFieldDefaultOptions }],
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
@@ -15,7 +22,7 @@ export class AppComponent implements OnInit, OnDestroy {
   routersubscription!: Subscription;
 
   constructor(private router: Router) { }
-  
+
   ngOnInit(): void {
     this.routersubscription = this.router.events.subscribe((event) => { //retrieve current url
       if (event instanceof NavigationEnd) {
@@ -36,4 +43,6 @@ export class AppComponent implements OnInit, OnDestroy {
     }
     return false;
   }
+
+
 }
