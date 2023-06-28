@@ -10,7 +10,7 @@ import { UserLogin, User } from '../models/user.model';
 })
 export class UserAuthService {
   private apiUrl = 'simplesecondbrain.up.railway.app/user'
-
+  apiUrlwithHTTPs = "https:" + this.apiUrl;
 
   loginStatusChanged: EventEmitter<boolean> = new EventEmitter<boolean>();
   private isLoggedin: boolean = false;
@@ -47,7 +47,7 @@ export class UserAuthService {
   }
 
   login(user: UserLogin): Observable<User> {
-    return this.http.post<User>(this.apiUrl + "/login", user, { withCredentials: true });
+    return this.http.post<User>(this.apiUrlwithHTTPs + "/login", user, { withCredentials: true });
   }
 
   public isAuthenticated(): boolean {
@@ -63,7 +63,7 @@ export class UserAuthService {
 
   //! register
   createUser(user:User):Observable<User>{
-    return this.http.post<User>(this.apiUrl + "/createuser", user, {withCredentials: true});
+    return this.http.post<User>(this.apiUrlwithHTTPs + "/createuser", user, {withCredentials: true});
   }
 
 }
