@@ -41,10 +41,34 @@ export class NotesComponent {
   newDivText = '';
   divTexts: string[] = [];
 
+
+
+
   createDiv() {
     if (this.newDivText.trim() !== '') {
       this.divTexts.push(this.newDivText);
       this.newDivText = '';
     }
   }
+
+  //placeholder text effect vars
+  titleClicked: boolean = false;
+  contentClicked: boolean = false;
+  @ViewChild('titleElement') titleElement!: ElementRef<HTMLElement>;
+  @ViewChild('divContent') divElement!: ElementRef<HTMLElement>;
+
+  //placeholder text erase effect
+  eraseContent(elementId:HTMLElement) {
+
+    console.log("title clicked", elementId.tagName);
+    if(!this.titleClicked && elementId.tagName === "H1"){
+      this.titleElement.nativeElement.textContent = '';
+      this.titleClicked = true;
+    }
+    if(!this.contentClicked && elementId.tagName === "DIV"){
+      this.divElement.nativeElement.textContent = '';
+      this.contentClicked = true;
+    }
+  }
 }
+

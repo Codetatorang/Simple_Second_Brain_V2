@@ -6,6 +6,15 @@
     left: -25px;
 }
 
+.img-title {
+    position: absolute;
+    top: 230px;
+    left: 0%;
+    font-size: 1.5em;
+    font-family: 'CustomFont-GH';
+    color: white;
+}
+
 /* card alignment to middle portrait*/
 .mat-mdc-card {
     display: flex;
@@ -14,8 +23,7 @@
     align-content: center;
     align-items: center;
     box-shadow: none;
-    /* background-color: aquamarine; */
-    /* to remove*/
+    background-color: #263238;
 }
 
 /* container containing the mat-card */
@@ -34,12 +42,11 @@ h1 {
 }
 
 /* mat-divider adjustment */
-/* .mat-divider.mat-divider-inset {
-    margin-left: 10%;
-    margin-right: 10%;
+.mat-divider{
+    border-color: white;
     border-top-width: 2px;
 
-} */
+}
 
 /* form field error-message colour */
 .mat-mdc-form-field-error {
@@ -122,4 +129,9 @@ a {
 .error-message {
     color: red;
     text-align: center;
+}
+
+//white text
+.white-text {
+    color: white;
 }

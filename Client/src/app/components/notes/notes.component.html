@@ -1,7 +1,7 @@
-<h1 contenteditable="true">Title</h1>
+<h1 contenteditable="true" [ngClass]="titleClicked? '':'placeholder-text'" #titleElement (click)="eraseContent(titleElement)" > Getting Started</h1>
 
 
-<div id= "container" #container contenteditable="true" (input)="onContentChanged($event.target)" (keypress)="handleKeyPress($event)" class="block"></div>
+<div id= "container" #container contenteditable="true" (input)="onContentChanged($event.target)" (keypress)="handleKeyPress($event)"  [ngClass]="contentClicked? '':'placeholder-text-content'" class="block" (click)="eraseContent(divContent)" #divContent>this is a pesudo content.</div>
 
 <!-- <input type="text" [(ngModel)]="newDivText" (keydown.enter)="createDiv()" placeholder="Enter text and press Enter">
 <div *ngFor="let divText of divTexts; let i = index" class="div-item">

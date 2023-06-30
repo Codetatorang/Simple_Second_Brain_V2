@@ -3,15 +3,25 @@ package ibf2022.tfip.simplesecondbrain.Server.services;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import ibf2022.tfip.simplesecondbrain.Server.models.User;
-import ibf2022.tfip.simplesecondbrain.Server.repositories.UserRepository;
+// import ibf2022.tfip.simplesecondbrain.Server.repositories.UserRepository;
+import ibf2022.tfip.simplesecondbrain.Server.repositories.UserRepository1;
+import lombok.AllArgsConstructor;
 
 @Service
-public class UserService {
+@AllArgsConstructor
+public class UserService  implements UserDetailsService{
     @Autowired
-    private UserRepository userRepo;
+    private UserRepository1 userRepo;
+    // @Autowired
+    // private UserRepository user1Repo;
+
+    private final static String USER_NOT_FOUND_MSG = "user name: %s not found";
 
     public Optional<User> getUserByUserNameandPassword(String userName, String userPassword) {
         return userRepo.getUserByUserNameandPassword(userName, userPassword);
@@ -45,6 +55,13 @@ public class UserService {
 
     public int deleteUser(String userName) {
         return userRepo.deleteUser(userName);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        // return user1Repo.findByUserName(username)
+        //     .orElseThrow(()-> new UsernameNotFoundException(String.format(USER_NOT_FOUND_MSG, username)));
+        return null;
     }
 
 }

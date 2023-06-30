@@ -5,12 +5,14 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ibf2022.tfip.simplesecondbrain.Server.models.User;
+import ibf2022.tfip.simplesecondbrain.Server.requests.RegistrationRequest;
 import ibf2022.tfip.simplesecondbrain.Server.services.UserService;
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
@@ -24,20 +26,20 @@ public class UserController {
     @PostMapping(path="/login" , consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> getUserByName(@RequestBody User user) {
         System.out.println("user: " + user);
-        Optional<User> userName = (userSvc.getUserByUserName(user.getUserName()));
+        Optional<User> userName = (userSvc.getUserByUserName(user.getUsername()));
         if (userName.isPresent()) { //username present
             JsonObject obj;
             obj = Json.createObjectBuilder()
-                        .add("userName",  userName.get().getUserName())
+                        .add("userName",  userName.get().getUsername())
                         .add("userPassword",  userName.get().getUserPassword())
-                        .add("msg",  "User: " + user.getUserName() + " found")
+                        .add("msg",  "User: " + user.getUsername() + " found")
                         .build();
             return ResponseEntity.ok(obj.toString());
         } else { //username not present
             JsonObject obj;
             obj = Json.createObjectBuilder()
                         .add("userName",  "null")
-                        .add("msg",  "User: " + user.getUserName() + " not found")
+                        .add("msg",  "User: " + user.getUsername() + " not found")
                         .build();
             return ResponseEntity.ok(obj.toString());
         }
@@ -45,17 +47,17 @@ public class UserController {
 
     @PostMapping(path = "/createuser", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> createUser(@RequestBody User user) {
-        int result = userSvc.saveUser(user.getUserName(), user.getUserPassword(), user.getAccName(), user.getEmail());
+        int result = userSvc.saveUser(user.getUsername(), user.getUserPassword(), user.getAccName(), user.getEmail());
         JsonObject obj;
         User userEmail, userUsername;
 
         switch(result){
             case -2:{ //email and username exists
                 userEmail = userSvc.getUserByEmail(user.getEmail()).get();
-                userUsername = userSvc.getUserByUserName(user.getUserName()).get();
+                userUsername = userSvc.getUserByUserName(user.getUsername()).get();
 
                 obj = Json.createObjectBuilder()
-                        .add("userName", userUsername.getUserName())
+                        .add("userName", userUsername.getUsername())
                         .add("email", userEmail.getEmail())
                         .add("result", "User: " + user.getAccName() +  " or Email: "+ user.getEmail() +" already exists")
                         .build();
@@ -63,11 +65,11 @@ public class UserController {
             }
 
             case -1:{ //username exists
-                userUsername = userSvc.getUserByUserName(user.getUserName()).get();
+                userUsername = userSvc.getUserByUserName(user.getUsername()).get();
 
                  obj = Json.createObjectBuilder()
-                        .add("userName", userUsername.getUserName())
-                        .add("result", "User: " + user.getUserName() +" already exists")
+                        .add("userName", userUsername.getUsername())
+                        .add("result", "User: " + user.getUsername() +" already exists")
                         .build();
                 return ResponseEntity.ok(obj.toString());
             }
@@ -91,5 +93,10 @@ public class UserController {
             }
         }
     }
-}
 
+
+    @GetMapping("/register")
+    public String register(RegistrationRequest request){
+        return "works";
+    }
+}

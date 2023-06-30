@@ -7,6 +7,7 @@ import { lastValueFrom } from 'rxjs';
 import { UserLogin } from 'src/app/models/user.model';
 import { UserAuthService } from 'src/app/services/user-auth.service';
 import { SHA256 } from 'crypto-js';
+import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,10 @@ export class LoginComponent implements OnInit {
   onSubmitError!: boolean;
   errorResp!: string;
 
-  constructor(private router: Router, private location: Location, private fb: FormBuilder, private userSvc: UserAuthService) { } //
+  user!: SocialUser;
+  loggedIn!: boolean;
+  
+  constructor(private router: Router, private location: Location, private fb: FormBuilder, private userSvc: UserAuthService, private authService: SocialAuthService) { }
 
   homePage() {
     if (this.location.path() !== '/') {
@@ -34,6 +38,14 @@ export class LoginComponent implements OnInit {
       userName: ['', Validators.required],
       userPassword: ['', Validators.required]
     });
+
+    //google auth
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = (user != null);
+      console.log(user.name);
+    });
+
   }
 
   onSubmit() {

@@ -1,4 +1,4 @@
-.block{
+.block {
     border-width: 1px;
     border-color: black;
     font-size: 30px;
@@ -6,8 +6,22 @@
     border-style: solid;
 }
 
-.divContainer{
+.divContainer {
     margin-top: 10px;
     padding: 10px;
     margin-bottom: 10px;
+}
+
+h1 {
+    color: white;
+}
+
+// for animation color to placeholder text
+.placeholder-text{
+    color:rgba(231, 231, 231, 0.3);
+    
+}
+.placeholder-text-content{
+    color:rgba(0, 0, 0, 0.5);
+    
 }

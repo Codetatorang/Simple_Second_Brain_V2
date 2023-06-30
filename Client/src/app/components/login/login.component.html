@@ -1,13 +1,26 @@
 <button mat-button>
-    <img src="assets\icons\icon-192x192.png" alt="SSB logo" class="img-css" (click)="homePage()">
+    <img src="assets\images/ssb-logo.png" alt="SSB logo" class="img-css" (click)="homePage()">
+    <span class="img-title">Simple Second Brain</span>
 </button>
 
 <div class="container" fxLayoutAlign="center">
     <mat-card fxLayout="column" fxLayoutGap="18px">
-        <h1>{{ title }}</h1>
+        <h1 class="white-text">{{ title }}</h1>
         <mat-card-content>
-            <p>replace with google oauth2</p>
+            <br>
+            <!-- <p>replace with google oauth2 blah blah blah</p> -->
+            <!-- <asl-google-signin-button type='standard' size='large' style="align-self: center;"></asl-google-signin-button> -->
+            <div id="g_id_onload"
+                data-client_id="434480113364-ngdvuapr24njm2t1nq3cvprhhm1h1grc.apps.googleusercontent.com"
+                data-context="signin" data-ux_mode="redirect"  data-login_uri="/" data-auto_prompt="false">
+            </div>
+
+            <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="signin_with"
+                data-size="large" data-logo_alignment="left">
+            </div>
+            <br>
             <mat-divider></mat-divider>
+            <br>
         </mat-card-content>
         <mat-card-content>
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
@@ -41,9 +54,10 @@
             </form>
         </mat-card-content>
         <mat-card-content>
-            <a href="">forgot password?</a>
             <br>
-            <a routerLink="/signup" style="justify-content: center;">No account? Sign up here</a>
+            <a href="" class="white-text">forgot password?</a>
+            <br>
+            <a routerLink="/signup" style="justify-content: center;" class="white-text">No account? Sign up here</a>
             <br>
             <div *ngIf="onSubmitError" [innerHTML]="errorResp" class="error-message"></div>
         </mat-card-content>

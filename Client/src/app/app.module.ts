@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,9 @@ import { NoteboardComponent } from './components/noteboard/noteboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NotesComponent } from './components/notes/notes.component';
 
+import {GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, SocialLoginModule} from '@abacritt/angularx-social-login';
+import { JokesComponent } from './components/jokes/jokes.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,8 @@ import { NotesComponent } from './components/notes/notes.component';
     LoginComponent,
     SignupComponent,
     NoteboardComponent,
-    NotesComponent
+    NotesComponent,
+    JokesComponent
   ],
   imports: [
     BrowserModule,
@@ -31,10 +35,29 @@ import { NotesComponent } from './components/notes/notes.component';
     FontAwesomeModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    FormsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    SocialLoginModule,
+    GoogleSigninButtonModule 
   ],
-  providers: [],
+  providers: [{
+    provide: 'SocialAuthServiceConfig',
+    useValue: {
+      autoLogin: false,
+      providers: [
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider(
+            '434480113364-ngdvuapr24njm2t1nq3cvprhhm1h1grc.apps.googleusercontent.com'
+          )
+        },
+      ],
+      onError: (err) => {
+        console.error(err);
+      }
+    } as SocialAuthServiceConfig,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,6 +10,7 @@ import { MatListModule } from '@angular/material/list';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
     exports: [
@@ -22,7 +23,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
         MatListModule,
         MatCheckboxModule,
         MatInputModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+        MatRadioModule,
     ]
 })
 export class MaterialModule { }

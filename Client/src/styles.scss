@@ -1,8 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+//custom font
+@font-face {
+    font-family: 'CustomFont-GH';
+    src: url('./assets/fonts/GloriaHallelujah-Regular.ttf');
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 // disable ripple effect
 .mat-mdc-button,
@@ -13,7 +26,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 /* changes mat-hint color based on validity */
-.validation-fail .ng-dirty{
+.validation-fail .ng-dirty {
     color: red !important;
 }
 
@@ -49,6 +62,11 @@ body {
     }
 
     .card-body {
-        padding: 1rem 1.5rem; 
+        padding: 1rem 1.5rem;
     }
+}
+
+//experiment
+body {
+    background-color: #263238;
 }

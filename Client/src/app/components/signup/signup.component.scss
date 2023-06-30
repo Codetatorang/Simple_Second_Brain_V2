@@ -6,6 +6,15 @@
     left: -25px;
 }
 
+.img-title {
+    position: absolute;
+    top: 230px;
+    left: 0%;
+    font-size: 1.5em;
+    font-family: 'CustomFont-GH';
+    color: white;
+}
+
 /* adjust error message inside mat-form-fields */
 .error-message {
     color: red;
@@ -20,6 +29,7 @@
     align-content: center;
     align-items: center;
     box-shadow: none;
+    background-color: #263238;
 }
 
 /* container containing the mat-card */
@@ -45,7 +55,7 @@
 .line {
     position: relative;
     height: 1px;
-    background-color: black;
+    background-color: white;
 }
 
 /* form field elements */
@@ -79,16 +89,19 @@
         outline-style: solid;
         outline-color: rgb(255, 87, 87);
     }
-    
 
-    
+
+
     /* set button to same size as mat-inputs */
     :host ::ng-deep .button-adjustment {
         /* flex: 1;
         box-sizing: border-box;
         box-shadow: none; */
-        width: 100% !important; 
+        width: 100% !important;
     }
-    
+}
 
+//white text
+.white-text {
+    color: white;
 }

@@ -9,5 +9,12 @@ export const navbarData = [
         routeLink: "notes",
         icon: faNote,
         label: 'Get Started'
+    },
+    {
+        // routeLink: "'', { outlets: { board: ['notes'] } }",
+        // routeLink: "/notes",
+        routeLink: "jokes",
+        icon: faNote,
+        label: 'jokes api'
     }
 ];

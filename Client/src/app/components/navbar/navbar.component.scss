@@ -1,19 +1,28 @@
 /* navbar spacer */
 .example-spacer {
-    flex: 1 1 auto;
-  }
-  
-  /* title inside the navbar */
-  .title-css{
-    padding-left: 3%;
-    font-size: 20px;
-    font-weight: 500;
-  }
-  
-  /* SSB logo adjustment */
-  .img-css{
-    position: relative;
-    padding-top: 40%;
-    left: -25px;
-  }
-  
+  flex: 1 1 auto;
+}
+
+/* title inside the navbar */
+.title-css {
+  padding-left: 3%;
+  font-size: 24px;
+  font-weight: 500;
+  font-family: 'CustomFont-GH';
+}
+
+/* SSB logo adjustment */
+.img-css {
+  position: relative;
+  padding-top: 40%;
+  left: -25px;
+}
+
+.img-title {
+  position: absolute;
+  top: 202px;
+  left: -8%;
+  font-size: 1.5em;
+  font-family: 'CustomFont-GH';
+  color: white;
+}

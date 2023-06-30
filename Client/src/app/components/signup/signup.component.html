@@ -1,13 +1,15 @@
 <button mat-button>
-    <img src="assets\icons\icon-192x192.png" alt="SSB logo" class="img-css" (click)="homePage()">
+    <img src="assets\images/ssb-logo.png" alt="SSB logo" class="img-css" (click)="homePage()">
+    <span class="img-title">Simple Second Brain</span>
 </button>
 
 <div class="container" fxLayoutAlign="center">
     <mat-card fxLayout="column" fxLayoutGap="10px">
         <mat-card-header>
-            <h1>Sign up</h1>
+            <h1 class="white-text">Sign up</h1>
         </mat-card-header>
         <mat-card-content>
+            <br>
             <div class="line"></div>
             <br>
             <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()">

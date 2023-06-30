@@ -1,0 +1,26 @@
+<div class="div-background">
+    <h3 class="align-title">Get a Joke here</h3>
+    <form (submit)="onSubmit()">
+        <mat-radio-group>
+            <mat-radio-button value="any" >Any</mat-radio-button>
+            <mat-radio-button value="" >Custom</mat-radio-button>
+        </mat-radio-group>
+
+        <!-- 
+        <div>
+            <mat-checkbox formControlName="programming">Programming</mat-checkbox>
+            <mat-checkbox formControlName="misc">Misc</mat-checkbox>
+            <mat-checkbox formControlName="dark">Dark</mat-checkbox>
+            <mat-checkbox formControlName="pun">Pun</mat-checkbox>
+            <mat-checkbox formControlName="spooky">Spooky</mat-checkbox>
+            <mat-checkbox formControlName="christmas">Christmas</mat-checkbox>
+          </div> -->
+
+          <button type="submit">submit</button>
+    </form>
+</div>
+
+<br><br><br>
+<div class="div-background" *ngIf="displayJoke"  [innerHTML]="jokeDisplayDiv">
+    display joke here
+</div>

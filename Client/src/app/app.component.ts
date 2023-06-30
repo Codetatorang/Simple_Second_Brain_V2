@@ -57,4 +57,5 @@ export class AppComponent implements OnInit, OnDestroy {
     this.screenWidth = data.screenWidth;
     this.isSideNavCollapsed = data.collapsed;
   }
+
 }
