@@ -5,14 +5,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import ibf2022.tfip.simplesecondbrain.Server.models.User;
-import ibf2022.tfip.simplesecondbrain.Server.requests.RegistrationRequest;
+import ibf2022.tfip.simplesecondbrain.Server.services.EmailService;
 import ibf2022.tfip.simplesecondbrain.Server.services.UserService;
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
@@ -23,6 +22,10 @@ public class UserController {
     @Autowired
     private UserService userSvc;
 
+    @Autowired
+    private EmailService emailSvc;
+
+    
     @PostMapping(path="/login" , consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> getUserByName(@RequestBody User user) {
         System.out.println("user: " + user);
@@ -95,8 +98,17 @@ public class UserController {
     }
 
 
-    @GetMapping("/register")
-    public String register(RegistrationRequest request){
-        return "works";
+    @PostMapping("/forgotpassword")
+    public ResponseEntity<String> forgotPassword(@RequestBody User user){
+        String subject, body;
+        subject = "Password Reset for Simple Second brain";
+        body = "this is a body test email to show that the email service works";
+        emailSvc.sendEmail(user.getEmail(), subject, body);
+        
+        JsonObject obj = Json.createObjectBuilder()
+                        .add("email", user.getEmail())
+                        .add("result", "Email sent to " + user.getEmail())
+                        .build();
+        return ResponseEntity.ok(obj.toString());
     }
 }

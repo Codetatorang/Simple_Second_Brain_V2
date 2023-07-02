@@ -17,6 +17,7 @@ import { NotesComponent } from './components/notes/notes.component';
 
 import {GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, SocialLoginModule} from '@abacritt/angularx-social-login';
 import { JokesComponent } from './components/jokes/jokes.component';
+import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { JokesComponent } from './components/jokes/jokes.component';
     SignupComponent,
     NoteboardComponent,
     NotesComponent,
-    JokesComponent
+    JokesComponent,
+    ForgotpasswordComponent
   ],
   imports: [
     BrowserModule,
